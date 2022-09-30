@@ -25,17 +25,12 @@ app.get('/todos', (req, res) => {
         data: todos
     })
 })
-app.post('/water', (req, res) => {
-    console.log('someone is offering water');
-    res.send('ok I have received water')
-})
-app.get('/pizza', (req, res) => {
-    console.log('some one is asking for pizza');
-    res.send('here is your pizza')
-})
-app.get('/coffee', (req, res) => {
-    console.log('some one is asking for coffee');
-    res.send('here is your coffee')
+app.delete('/del', (req, res) => {
+    todos=[]
+    res.send({
+        message: "todo is deleted",
+        data: todos
+    })
 })
 
 // POST 172.16.18.202:3000/water

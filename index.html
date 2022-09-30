@@ -51,6 +51,7 @@
         border-radius: 25px;
         height: 10px;
         border-color: #f1f1f1;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     }
 
     button {
@@ -64,6 +65,8 @@
         opacity: 0.9;
         height: 40px;
         border-color: rgb(239, 99, 99);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        cursor: pointer;
     }
     u{
         text-decoration: underline;
@@ -84,12 +87,12 @@
             <button type="submit">Add</button>
         </form>
         <button onclick="getAllTodos()">Refresh</button>
-        <!-- <button  onclick="removelist(); return false">Delete All</button> -->
+        <button  onclick="getDelete(); return false">Delete All</button>
         <h3 id="result"> </h3>
     </div>
 
     <script>
-        // let api ='http://localhost:3000/todos'
+        
         function postTodo() {
             let todoText = document.querySelector("#todo").value
 
@@ -131,7 +134,22 @@
                 })
         
             }
-        setInterval(getAllTodos, 1000);
+        setInterval(getAllTodos, 700);
+
+        function getDelete() {
+                  
+         let code = prompt("Enter Password ")
+         if (code === "123") {
+            axios.delete('http://localhost:3000/del')
+            .then(function (response) {
+                 console.log(response.data);
+         
+             })    
+             .catch((error) => {
+             console.log(error)
+         })}
+     
+     }
 
         // function removelist() {
         //     let code = prompt("Enter Password ")
