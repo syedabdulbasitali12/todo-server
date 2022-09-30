@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Basit Air.sysborg</title>
+    <link rel="apple-touch-icon" href="pic/download.png">
+    <link rel="icon" href="pic/download.png">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <style>
@@ -89,6 +91,7 @@
         <button onclick="getAllTodos()">Refresh</button>
         <button  onclick="getDelete(); return false">Delete All</button>
         <h3 id="result"> </h3>
+        
     </div>
 
     <script>
@@ -96,7 +99,7 @@
         function postTodo() {
             let todoText = document.querySelector("#todo").value
 
-            axios.post(`http://localhost:3000/todo`, {
+            axios.post(`https://modern-galoshes-boa.cyclic.app/todo`, {
                 text: todoText
             })
                 .then(function (response) {
@@ -117,7 +120,7 @@
         }
 
         function getAllTodos() {
-            axios.get(`http://localhost:3000/todos`)
+            axios.get(`https://modern-galoshes-boa.cyclic.app/todos`)
                 .then(function (response) {
                     console.log(response.data);
 
@@ -140,7 +143,7 @@
                   
          let code = prompt("Enter Password ")
          if (code === "123") {
-            axios.delete('http://localhost:3000/del')
+            axios.delete('https://modern-galoshes-boa.cyclic.app/del')
             .then(function (response) {
                  console.log(response.data);
          
